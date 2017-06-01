@@ -55,9 +55,7 @@ app.get('/:forward', function(req,res) {
   shortUrl.findOne({'shorterUrl': forwardUrl}, function(err,data) {
     if(err) return res.send('Error reaching site')
 
-    if(!data) {
-      console.log('Cannot find data')
-    } else {
+    if(data) {
       var re = new RegExp('^(http|https)://', 'i');
       console.log(data.originalUrl)
       if(data.originalUrl != null) {
