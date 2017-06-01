@@ -55,17 +55,23 @@ app.get('/:forward', function(req,res) {
   shortUrl.findOne({'shorterUrl': forwardUrl}, function(err,data) {
     if(err) return res.send('Error reaching site')
 
-    var re = new RegExp('^(http|https)://', 'i');
-    console.log(data.originalUrl)
-    if(data.originalUrl != null) {
-      var str = data.originalUrl;
+    if(!data) {
+      console.log('Cannot find data')
+    } else {
+      var re = new RegExp('^(http|https)://', 'i');
+      console.log(data.originalUrl)
+      if(data.originalUrl != null) {
+        var str = data.originalUrl;
+      }
+
+      if(re.test(str) === true) {
+        res.redirect(301, data.originalUrl);
+      } else {
+        res.redirect(301, 'http://' + data.originalUrl);
+      }
     }
 
-    if(re.test(str) === true) {
-      res.redirect(301, data.originalUrl);
-    } else {
-      res.redirect(301, 'http://' + data.originalUrl);
-    }
+
   })
 })
 
