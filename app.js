@@ -8,10 +8,10 @@ var port = process.env.PORT || 3000;
 var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
 
-export MONGOLAB_URI = 'mongodb://neochong:test1234@ds143071.mlab.com:43071/fcc-project';
-var url = process.env.MONGOLAB_URI;
+//export MONGOLAB_URI = 'mongodb://neochong:test1234@ds143071.mlab.com:43071/fcc-project';
+//var url = process.env.MONGOLAB_URI;
 
-//var url = 'mongodb://neochong:test1234@ds143071.mlab.com:43071/fcc-project';
+var url = 'mongodb://neochong:test1234@ds143071.mlab.com:43071/fcc-project';
 
 mongoose.Promise = global.Promise;
 
