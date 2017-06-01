@@ -56,6 +56,7 @@ app.get('/:forward', function(req,res) {
     if(err) return res.send('Error reaching site')
 
     var re = new RegExp('^(http|https)://', 'i');
+    console.log(data.originalUrl)
     if(data.originalUrl != null) {
       var str = data.originalUrl;
     }
