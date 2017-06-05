@@ -1,6 +1,7 @@
 var express = require('express')
 var bodyParse = require('body-parser')
 var mongoose = require('mongoose')
+var dotenv = require('dotenv').config()
 
 var shortUrl = require('./models/shortUrl');
 var app = module.exports = express();
@@ -11,7 +12,7 @@ var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 
 //export MONGOLAB_URI = 'mongodb://neochong:test1234@ds143071.mlab.com:43071/fcc-project';
 //var url = process.env.MONGOLAB_URI;
 
-var url = 'mongodb://neochong:test1234@ds143071.mlab.com:43071/fcc-project';
+var url = process.env.URL;
 
 mongoose.Promise = global.Promise;
 
